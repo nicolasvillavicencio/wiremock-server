@@ -1,0 +1,74 @@
+{
+    "mappings" : [ {
+      "id" : "4f48ea8b-c1af-49d5-a474-b9ed4514bc21",
+      "name" : "GET callback",
+      "request" : {
+        "url" : "/api/v1/callback-response",
+        "method" : "GET"
+      },
+      "response" : {
+        "status" : 200,
+        "body" : "{\n  \"id\": 1,\n  \"response\": \"2\"\n}",
+        "headers" : {
+          "Content-Type" : "application/json; charset=UTF-8"
+        }
+      },
+      "uuid" : "4f48ea8b-c1af-49d5-a474-b9ed4514bc21",
+      "persistent" : true,
+      "priority" : 5,
+      "metadata" : {
+        "mocklab" : {
+          "created" : {
+            "at" : "2023-06-27T22:31:00.124274671Z",
+            "via" : "ADMIN_API",
+            "by" : "deyye"
+          }
+        }
+      },
+      "postServeActions" : [ ]
+    }, {
+      "id" : "d20f0af5-e18e-4c70-8259-e0ce931f4e15",
+      "name" : "GET a JSON resource",
+      "request" : {
+        "url" : "/api/v1/todos",
+        "method" : "GET"
+      },
+      "response" : {
+        "status" : 200,
+        "body" : "{\n  \"id\": 1,\n  \"value\": \"things\"\n}",
+        "headers" : {
+          "Content-Type" : "application/json; charset=UTF-8"
+        }
+      },
+      "uuid" : "d20f0af5-e18e-4c70-8259-e0ce931f4e15",
+      "persistent" : true,
+      "priority" : 5,
+      "metadata" : {
+        "mocklab" : {
+          "created" : {
+            "at" : "2023-06-18T20:01:48.446395186Z",
+            "via" : "SYSTEM"
+          },
+          "updated" : {
+            "at" : "2023-06-27T22:31:47.351092338Z",
+            "via" : "ADMIN_API",
+            "by" : "deyye"
+          }
+        }
+      },
+      "postServeActions" : [ {
+        "name" : "webhook",
+        "parameters" : {
+          "method" : "GET",
+          "url" : "http://localhost:8080/api/v1/callback-response",
+          "headers" : {
+            "Content-Type" : "text/json"
+          },
+          "body" : ""
+        }
+      } ]
+    } ],
+    "meta" : {
+      "total" : 2
+    }
+}
